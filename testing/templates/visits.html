@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Medical Visits for {{name}}</title>
+    </head>
+    <body>
+        <h1>Medical Visits for: {{name}}</h1>
+        {% if visits %}
+            {% for visit in visits %}
+                <button onclick = "handleVisit('{{visit}}')">Visit on {{visit}}</button>
+            {% endfor %}
+        {% else %}
+            <p>No visits recorded.</p>
+        {% endif %}
+
+
+        <script>
+            function handleVisit(visit){
+                alert("Selected visit date: " + visit);
+                // Add returned value from Shilpi's model
+            }
+        </script>
+    </body>
+</html>
