@@ -11,12 +11,11 @@ body {
 .box {
     display: flex;
     border: 3px solid #ACCDC2;
-    padding: 0;
     margin: 0;
     align-items: center;
     width: 100%;
     text-align: center;
-    padding: 2rem;
+    /* padding: 2rem; */
 }
 
 .title {
@@ -28,12 +27,18 @@ body {
 .secret {
     width: 100%;
     align-content: center; 
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .nav {
     margin-bottom: 2rem;
-    text-align: center;
+    width: 100%;
     vertical-align: middle;
+}
+
+.nav h1 {
+    margin-right: 6rem;
 }
 
 .login {
@@ -58,6 +63,17 @@ img {
 
 .visit_data {
     margin: 2rem;
-    width: 100%;
     margin: auto;
+}
+
+.visits {
+    column-gap: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.visit {
+    width: 70%;
+    margin: auto;
+    padding: 2rem;
 }

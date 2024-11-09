@@ -13,18 +13,21 @@
         </div>
         
 
-        <div class="box title">
-            <h3>Visits</h3>
+        <div class="visit">
+            <div class="box title">
+                <h3>Visits</p>
+            </div>
+            <div class="box visits">
+                {% if visits %}
+                    {% for visit in visits %}
+                        <button class = "visit_data" onclick = "handleVisit('{{visit}}')">Visit on {{visit}}</button>
+                    {% endfor %}
+                {% else %}
+                    <p>No visits recorded.</p>
+                {% endif %}
+            </div>
         </div>
-        <div class="box">
-            {% if visits %}
-                {% for visit in visits %}
-                    <button class = "visit_data" onclick = "handleVisit('{{visit}}')">Visit on {{visit}}</button>
-                {% endfor %}
-            {% else %}
-                <p>No visits recorded.</p>
-            {% endif %}
-        </div>
+        
         
 
 
