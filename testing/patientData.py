@@ -30,7 +30,6 @@ class patientData:
             print(d)
             print(self.data[d])
         
-
 # class main:
 #     pats = patientData("./static/PatientsDatabase.csv").data
     

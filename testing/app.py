@@ -35,7 +35,6 @@ def login():
         return redirect(url_for('loginWError', error = "Invalid Identification Number"))
     
     else:
-        session['iden'] = iden #Need to access iden across routes
         return redirect(url_for('display', iden=iden, coo=coo))
 
 @app.route('/loginWError')
@@ -49,20 +48,11 @@ def display():
     # Retrieve the username and password from the query parameters
     iden = request.args.get('iden')
     coo = request.args.get('coo')
-    # print(patdata[int(iden)])
+    print(patdata[int(iden)])
     name = patdata[int(iden)].name
-    return render_template('display.html', iden=iden, coo=coo, name = name)
 
-@app.route('/visits')
-def visit():
-    iden = session.get('iden') #Use iden in session
-    print(iden)
-    if iden.isdigit() and int(iden) in persons_dict:
-        person = persons_dict[int(iden)]
-        visits = person.visits
-        return render_template('visits.html', person = person, visits = visits)
-    else:
-        return "Identification number not found in the database", 404
+
+    return render_template('display.html', iden=iden, coo=coo, name = name)
 
 if __name__ == '__main__':
     app.run(debug = True)
