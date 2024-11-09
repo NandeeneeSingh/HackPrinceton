@@ -1,5 +1,11 @@
+@font-face {
+    font-family: 'Adventure';
+    src: URL('fonts\Adventuring-rJlL.ttf') format('truetype');
+}
+
 body {
     background-color: #96B6AC;
+    font-family: "Adventure";
 }
 
 .box {
@@ -9,13 +15,19 @@ body {
     margin: 0;
     align-items: center;
     width: 100%;
+    text-align: center;
+    padding: 2rem;
 }
 
 .title {
     border-bottom: none;
     margin: 0;
     background-color: #e6a050;
-    
+}
+
+.secret {
+    width: 100%;
+    align-content: center; 
 }
 
 .nav {
@@ -27,26 +39,25 @@ body {
 .login {
     width: 50%;
     margin: auto;
+    padding-inline: 2rem;
 }
 
 
-h1, h2 {
+h1, h2, h3 {
     width: 100%;
+    text-align: center;
 }
 
 p, label {
     margin-left: 2rem;
 }
 
-.inp {
-    margin: 2rem;
-}
-
-input {
-    margin-right: 5rem;
-}
-
 img {
     width: 10%;
 }
 
+.visit_data {
+    margin: 2rem;
+    width: 100%;
+    margin: auto;
+}
