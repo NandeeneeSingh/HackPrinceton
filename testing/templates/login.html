@@ -2,16 +2,36 @@
     <head>
         <meta charset="UTF-8">
         <title>Login Page</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     </head>
    <body>
-    <form action="/login" method="POST">
-        <label for="iden">Name:</label>
-        <input type="text" name="iden">
         
-        <label for="coo">Country:</label>
-        <input type="text" name="coo">
+        <div class="box nav">
+            <img src="./../static/bg6.jpg">
+            <h1>WORLD TRANSLATIONATOR 5000</h1>
+        </div>
+        <div class="login">
+            <div class="box title">
+                <p>Login</p>
+            </div>
+            <div class="box info">
+                <form action="/login" method="POST">
+                    <div class="inp">
+                        <label for="iden">Identification Number:</label>
+                        <input type="text" name="iden">
+                    </div>
+                        
+                    <div class="inp">
+                        <label for="coo">Country Of Origin:</label>
+                        <input type="text" name="coo">
+                    </div>
+                    
+                    <div class="inp">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
         
-        <input type="submit" value="Login">
-    </form>
    </body>
 </html>
