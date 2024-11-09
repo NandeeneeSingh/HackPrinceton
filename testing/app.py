@@ -3,21 +3,21 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-   return render_template('login.html')
+    return render_template('login.html')
 
 @app.route('/login', methods=['POST'])
 def login():
-   id = request.form.get('id')
-   woo = request.form.get('woo')
+    iden = request.form.get('iden')
+    coo = request.form.get('coo')
 
-   return redirect(url_for('display', id=id, woo=woo))
+    return redirect(url_for('display', iden=iden, coo=coo))
 
 @app.route('/display')
 def display():
-   # Retrieve the username and password from the query parameters
-   id = request.args.get('id')
-   woo = request.args.get('woo')
-   return render_template('display.html', id=id, woo=woo)
+    # Retrieve the username and password from the query parameters
+    iden = request.args.get('iden')
+    coo = request.args.get('coo')
+    return render_template('display.html', iden=iden, coo=coo)
 
 if __name__ == '__main__':
-   app.run(debug = True)
+    app.run(debug = True)
