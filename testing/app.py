@@ -1,5 +1,8 @@
 from flask import Flask, redirect, url_for, request, render_template
+from patientData import patientData
+
 app = Flask(__name__)
+patdata = patientData("./static/PatientsDatabase.csv").data
 
 @app.route('/')
 def home():
@@ -45,7 +48,9 @@ def display():
     # Retrieve the username and password from the query parameters
     iden = request.args.get('iden')
     coo = request.args.get('coo')
-    return render_template('display.html', iden=iden, coo=coo)
+    # print(patdata[int(iden)])
+    name = patdata[int(iden)].name
+    return render_template('display.html', iden=iden, coo=coo, name = name)
 
 if __name__ == '__main__':
     app.run(debug = True)
