@@ -24,7 +24,7 @@ train_df, val_df = train_test_split(dataframe, test_size=0.1)
 
 # convert dataframes to datasets
 trainDS = Dataset.from_pandas(train_df)
-valDS = Dataset.from_pandas(val_df)
+valDS = valDS.from_pandas(val_df)
 
 # initialize tokenizer
 tokenizer = T5Tokenizer.from_pretrained("t5-small")
@@ -60,7 +60,7 @@ trainingArgs = TrainingArguments(
     logging_steps=10
 )
 
-# initialize the trainer
+# initialize the Trainer
 trainer = Trainer(
     model=model,
     args=trainingArgs,
@@ -68,10 +68,10 @@ trainer = Trainer(
     eval_dataset=valDS
 )
 
-# Train the model
+# train the model
 trainer.train()
 
-# evaluate model
+# evaluate the model
 results = trainer.evaluate()
 print(results)
 
@@ -90,9 +90,7 @@ def generate_model(terms):
             definitions.append(predictedDef)
     return definitions
 
-# Example of using the model to generate definitions
+# ex of using the model to generate definitions
 known_conditions = ["Arthritis"]
 simplified_definitions = generate_model(known_conditions)
-for condition, definition in zip(known_conditions, simplified_definitions):
-    definition = f"Simplified definition of '{condition}': {definition}")
-    return definition
+return simplified_definitions
