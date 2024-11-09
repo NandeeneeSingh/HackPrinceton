@@ -55,7 +55,7 @@ def display():
     # Retrieve the username and password from the query parameters
     identification_number = request.args.get("identification_number")
     country_of_origin = request.args.get("country_of_origin")
-    print(patient_data[int(identification_number)])
+
     name = patient_data[int(identification_number)].name
     visits = patient_data[int(identification_number)].visits
     return render_template("visits.html", name=name, visits=visits)
