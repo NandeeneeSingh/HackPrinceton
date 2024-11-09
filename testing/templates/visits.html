@@ -1,17 +1,34 @@
 <html>
     <head>
         <meta charset="UTF-8">
+
+        <link rel="icon" type = "image/x-icon" href="./../static/wtfk.png">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
         <title>Medical Visits for {{name}}</title>
     </head>
     <body>
-        <h1>Medical Visits for: {{name}}</h1>
-        {% if visits %}
-            {% for visit in visits %}
-                <button onclick = "handleVisit('{{visit}}')">Visit on {{visit}}</button>
-            {% endfor %}
-        {% else %}
-            <p>No visits recorded.</p>
-        {% endif %}
+        <div class="box nav">
+            <h1>Medical Visits for: {{name}}</h1>
+        </div>
+        
+
+        <div class="visit">
+            <div class="box title">
+                <h3>Visits</p>
+            </div>
+            <div class="box visits">
+                {% if visits %}
+                    {% for visit in visits %}
+                        <button class = "visit_data" onclick = "handleVisit('{{visit}}')">Visit on {{visit}}</button>
+                    {% endfor %}
+                {% else %}
+                    <p>No visits recorded.</p>
+                {% endif %}
+            </div>
+        </div>
+        
+        
 
 
         <script>

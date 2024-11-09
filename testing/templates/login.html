@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Login Page</title>
+        <link rel="icon" type = "image/x-icon" href="./../static/wtfk.png">
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
         <script>
             function validateForm() {
@@ -17,29 +18,36 @@
     </head>
     <body onload="validateForm()">
         <div class="box nav">
-            <img src="{{ url_for('static', filename='bg6.jpg') }}" alt="Background Image">
+            <img src="{{ url_for('static', filename='wtfk.png') }}" alt="Background Image">
             <h1>WORLD TRANSLATIONATOR 5000</h1>
         </div>
 
-        <h2>Login to access Documentation</h2>
-
-        <form action="{{ url_for('login') }}" method="POST" oninput="validateForm()">
-            <label for="iden">Identification Number:</label>
-            <input type="text" id="iden" name="iden" required>
-            
-            <label for="coo">Country Of Origin:</label>
-            <select id="coo" name="coo" required>
-                <option value="">Select Your Country</option>
-                <option value="United States">United States</option>
-                <option value="France">France</option>
-                <option value="India">India</option>
-                <option value="China">China</option>
-                <option value="Ghana">Ghana</option>
-                <option value="Burma">Burma</option>
-                <option value="Cambodia">Cambodia</option>
-            </select>
-
-            <button type="submit" id="submitBtn" disabled>Submit</button>
-        </form>
+        <div class="login">
+            <div class="box title">
+                <h3>Login to access Documentation</h3>
+            </div>
+            <div class="box secret">
+                <form action="{{ url_for('login') }}" method="POST" oninput="validateForm()">
+                    <label for="iden">Identification Number:</label>
+                    <input type="text" id="iden" name="iden" required>
+                    
+                    <label for="coo">Country Of Origin:</label>
+                    <select id="coo" name="coo" required>
+                        <option value="">Select Your Country</option>
+                        <option value="United States">United States</option>
+                        <option value="France">France</option>
+                        <option value="India">India</option>
+                        <option value="China">China</option>
+                        <option value="Ghana">Ghana</option>
+                        <option value="Burma">Burma</option>
+                        <option value="Cambodia">Cambodia</option>
+                    </select>
+    
+                    <button type="submit" id="submitBtn" disabled>Submit</button>
+                </form>
+            </div>
+        </div>
+        
+        
     </body>
 </html>

@@ -1,52 +1,79 @@
+@font-face {
+    font-family: 'Adventure';
+    src: URL('fonts\Adventuring-rJlL.ttf') format('truetype');
+}
+
 body {
     background-color: #96B6AC;
+    font-family: "Adventure";
 }
 
 .box {
     display: flex;
     border: 3px solid #ACCDC2;
-    padding: 0;
     margin: 0;
     align-items: center;
     width: 100%;
+    text-align: center;
+    /* padding: 2rem; */
 }
 
 .title {
     border-bottom: none;
     margin: 0;
     background-color: #e6a050;
-    
+}
+
+.secret {
+    width: 100%;
+    align-content: center; 
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .nav {
     margin-bottom: 2rem;
-    text-align: center;
+    width: 100%;
     vertical-align: middle;
+}
+
+.nav h1 {
+    margin-right: 6rem;
 }
 
 .login {
     width: 50%;
     margin: auto;
+    padding-inline: 2rem;
 }
 
 
-h1, h2 {
+h1, h2, h3 {
     width: 100%;
+    text-align: center;
 }
 
 p, label {
     margin-left: 2rem;
 }
 
-.inp {
-    margin: 2rem;
-}
-
-input {
-    margin-right: 5rem;
-}
-
 img {
     width: 10%;
 }
 
+.visit_data {
+    margin: 2rem;
+    margin: auto;
+}
+
+.visits {
+    column-gap: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.visit {
+    width: 70%;
+    margin: auto;
+    padding: 2rem;
+}
