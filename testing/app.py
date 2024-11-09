@@ -1,7 +1,8 @@
-from flask import Flask, redirect, url_for, request, render_template
+from flask import Flask, redirect, url_for, request, render_template, session
 from patientData import patientData
 
 app = Flask(__name__)
+app.secret_key = 'key'
 patdata = patientData("./static/PatientsDatabase.csv").data
 
 @app.route('/')
@@ -50,9 +51,8 @@ def display():
     coo = request.args.get('coo')
     print(patdata[int(iden)])
     name = patdata[int(iden)].name
-
-
-    return render_template('display.html', iden=iden, coo=coo, name = name)
+    visits = patdata[int(iden)].visits
+    return render_template('visits.html', name = name, visits = visits)
 
 if __name__ == '__main__':
     app.run(debug = True)

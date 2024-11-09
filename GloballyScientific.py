@@ -14,7 +14,7 @@ print(select_country)
 
 country = input("Please enter the NAME of your country: " )
 print("The country you selected is: " + country.upper())
-print(" ")
+print(" ") 
 
 
 id_number = 0

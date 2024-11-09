@@ -1,37 +1,45 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Login Page</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <script>
+            function validateForm() {
+                const iden = document.getElementById("iden").value;
+                const coo = document.getElementById("coo").value;
+                const submitButton = document.getElementById("submitBtn");
+
+                // Enable the submit button only if both fields are filled
+                submitButton.disabled = !(iden && coo);
+            }
+        </script>
     </head>
-   <body>
-        
+    <body onload="validateForm()">
         <div class="box nav">
-            <img src="./../static/bg6.jpg">
+            <img src="{{ url_for('static', filename='bg6.jpg') }}" alt="Background Image">
             <h1>WORLD TRANSLATIONATOR 5000</h1>
         </div>
-        <div class="login">
-            <div class="box title">
-                <p>Login</p>
-            </div>
-            <div class="box info">
-                <form action="/login" method="POST">
-                    <div class="inp">
-                        <label for="iden">Identification Number:</label>
-                        <input type="text" name="iden">
-                    </div>
-                        
-                    <div class="inp">
-                        <label for="coo">Country Of Origin:</label>
-                        <input type="text" name="coo">
-                    </div>
-                    
-                    <div class="inp">
-                        <input type="submit" value="Submit">
-                    </div>
-                </form>
-            </div>
-        </div>
-        
-   </body>
+
+        <h2>Login to access Documentation</h2>
+
+        <form action="{{ url_for('login') }}" method="POST" oninput="validateForm()">
+            <label for="iden">Identification Number:</label>
+            <input type="text" id="iden" name="iden" required>
+            
+            <label for="coo">Country Of Origin:</label>
+            <select id="coo" name="coo" required>
+                <option value="">Select Your Country</option>
+                <option value="United States">United States</option>
+                <option value="France">France</option>
+                <option value="India">India</option>
+                <option value="China">China</option>
+                <option value="Ghana">Ghana</option>
+                <option value="Burma">Burma</option>
+                <option value="Cambodia">Cambodia</option>
+            </select>
+
+            <button type="submit" id="submitBtn" disabled>Submit</button>
+        </form>
+    </body>
 </html>
