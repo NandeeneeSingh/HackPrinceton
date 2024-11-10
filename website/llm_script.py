@@ -37,4 +37,4 @@ class MedicalAssistant:
             {"role": "assistant", "content": response.choices[0].message.content}
         )
         # Print the response
-        return(f"Simpified Diagnosis: {response.choices[0].message.content}")
+        return(f"{response.choices[0].message.content}")

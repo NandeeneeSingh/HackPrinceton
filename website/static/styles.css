@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Adventure';
-    src: URL('fonts\Adventuring-rJlL.ttf') format('truetype');
+    src: URL('fonts/Adventuring-rJlL.ttf') format('truetype');
 }
 
 body {
@@ -101,3 +101,17 @@ img {
     padding-top: 3rem;
 }
 
+.date {
+    width: 20rem;
+    margin: auto;
+    margin-bottom:2rem;
+    margin-top: 2rem;
+}
+
+.diagT {
+    height: 3rem;
+}
+
+.diagT p {
+    text-align: center;
+}

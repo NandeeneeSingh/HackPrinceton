@@ -1,2 +1,23 @@
-{{date}}
-{{simplified_diagnosis}}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Diagnosis</title>
+        <link rel="icon" type = "image/x-icon" href="./../static/wtfk.png">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+   <body>
+        <div class="box date">
+            <h1>{{date}}</h1>
+        </div>
+        <div class="box title diagT">
+            <p>Simplified Diagnosis</p>
+        </div>
+        <div class="daig box">
+            <p>{{simplified_diagnosis}}</p>
+        </div>
+
+        <div class="contact">
+            <p>For more information about your medical records, please reach out at (407) 538-0967 or email us at pizzalover2317@gmail.com</p>
+        </div>
+   </body>
+</html>
