@@ -2,11 +2,20 @@
     <head>
         <meta charset="UTF-8">
         <title>Login Page</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
     </head>
    <body>
-        <h1>Error: {{error}}</h1>
-        <form action = "{{ url_for ('home')}}" method="get">
-            <button type = "submit">Return to Login</button>
-        </form>
+        <div class="box">
+            <h1>Error: {{error}}</h1>
+        </div>
+        <div class="return">
+            <form action = "{{ url_for ('home')}}" method="get">
+                <button type = "submit">Return to Login</button>
+            </form>
+        </div>
+        <div class="contact">
+            <p>For more information about your medical records, please reach out at (407) 538-0967 or email us at pizzalover2317@gmail.com</p>
+        </div>
    </body>
 </html>

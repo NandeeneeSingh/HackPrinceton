@@ -10,7 +10,8 @@ body {
 
 .box {
     display: flex;
-    border: 3px solid #ACCDC2;
+    border: 3px solid #558877;
+    background-color: #68a08d;
     margin: 0;
     align-items: center;
     width: 100%;
@@ -76,4 +77,22 @@ img {
     width: 70%;
     margin: auto;
     padding: 2rem;
+    height: 80%;
+}
+
+.contact {
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+    margin-left: -1rem;
+    width: 105%;
+    background-color: #277FB2;
+    text-align: center;
+}
+
+.return form {
+    width: 100%;
+    /* background-color: black; */
+    padding-inline: 55rem;
+    padding-top: 3rem;
 }
