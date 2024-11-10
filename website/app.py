@@ -62,6 +62,9 @@ def display():
     visits = patient_data.get_visits(identification_number)
     return render_template("visits.html", name=name, visits=visits)
 
+@app.route("/day/<date>")
+def day(date):
+    return render_template("day.html", date = date)
 
 if __name__ == "__main__":
     app.run(debug=True)

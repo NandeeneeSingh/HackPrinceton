@@ -20,22 +20,27 @@
             <div class="box visits">
                 {% if visits %}
                     {% for visit in visits %}
-                        <button class = "visit_data" onclick = "handleVisit('{{visit}}')">Visit on {{visit}}</button>
+                        <form action = "{{ url_for('day', date = visit)}}" method="get">
+                            <button type = "submit" class = "visit_data">Visit on {{visit}}</button>
+                        </form>
                     {% endfor %}
                 {% else %}
                     <p>No visits recorded.</p>
                 {% endif %}
             </div>
         </div>
-        
-        
-
 
         <script>
             function handleVisit(visit){
-                alert("Selected visit date: " + visit);
+            {{ url_for ('home')}}
                 // Add returned value from Shilpi's model
             }
         </script>
+
+    <div class="contact">
+        <p>For more information about your medical records, please reach out at (407) 538-0967 or email us at pizzalover2317@gmail.com</p>
+    </div>
     </body>
+
+    
 </html>
