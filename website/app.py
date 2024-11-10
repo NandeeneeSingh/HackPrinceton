@@ -1,9 +1,9 @@
 from flask import Flask, redirect, url_for, request, render_template, session
-from patientData import patientData
+from patient_data import PatientDatabase
 
 app = Flask(__name__)
 app.secret_key = "key"
-patient_data = patientData("./static/PatientsDatabase.csv").data
+patient_data = PatientDatabase("./static/PatientsDatabase.csv")
 
 
 @app.route("/")
@@ -55,9 +55,11 @@ def display():
     # Retrieve the username and password from the query parameters
     identification_number = request.args.get("identification_number")
     country_of_origin = request.args.get("country_of_origin")
+    # cast identification number to integer TODO: check for type errors
+    identification_number = int(identification_number)
 
-    name = patient_data[int(identification_number)].name
-    visits = patient_data[int(identification_number)].visits
+    name = patient_data.get_name(identification_number)
+    visits = patient_data.get_visits(identification_number)
     return render_template("visits.html", name=name, visits=visits)
 
 
