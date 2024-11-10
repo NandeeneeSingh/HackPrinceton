@@ -20,7 +20,7 @@
             <div class="box visits">
                 {% if visits %}
                     {% for visit_date, visit_patient in visits.items() %}
-                        <form action = "{{ url_for('day', date = visit_date, visit_patient = visit_patient)}}" method="get">
+                        <form action = "{{ url_for('day', date = visit_date, visit_patient = type(visit_patient))}}" method="get">
                             <button type = "submit" class = "visit_data">Visit on {{visit_date}}</button>
                         </form>
                     {% endfor %}
