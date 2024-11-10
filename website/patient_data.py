@@ -66,10 +66,10 @@ class PersonData:
         self.visits = dict()
         for visit_date, visit_file_name in visits.items():
             visit_file_path = os.path.join(PersonData.VISIT_DATA_PATH, f"{visit_file_name}.{PersonData.VISIT_FILE_EXTENSION}")
+            visit_data_reader = VisitDataReader()
             try:
                 with open(visit_file_path, 'r', encoding='utf-8') as visit_file:
-                    visit_data_reader = VisitDataReader()
-                    visit_data_reader.read_file()
+                    visit_data_reader.read_file(visit_file)
             except FileNotFoundError:
                 print(f"Patient visit data '{visit_file_path}' not found, skipping visit data.")
                 continue
@@ -87,7 +87,7 @@ class PatientDatabase:
 
         for patient_index, patient_data in file_data.iterrows():
             patient_visits = dict()
-            for date_index in range(3):
+            for date_index in range(1, 4):
                 if (patient_data[f"Date {date_index}"] is None) or (
                     patient_data[f"Data {date_index}"] is None
                 ):

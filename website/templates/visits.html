@@ -19,9 +19,9 @@
             </div>
             <div class="box visits">
                 {% if visits %}
-                    {% for visit in visits %}
-                        <form action = "{{ url_for('day', date = visit)}}" method="get">
-                            <button type = "submit" class = "visit_data">Visit on {{visit}}</button>
+                    {% for visit_date, visit_patient in visits.items() %}
+                        <form action = "{{ url_for('day', date = visit_date, visit_patient = visit_patient)}}" method="get">
+                            <button type = "submit" class = "visit_data">Visit on {{visit_date}}</button>
                         </form>
                     {% endfor %}
                 {% else %}
@@ -31,7 +31,7 @@
         </div>
 
         <script>
-            function handleVisit(visit){
+            function handleVisit(visit) {
             {{ url_for ('home')}}
                 // Add returned value from Shilpi's model
             }

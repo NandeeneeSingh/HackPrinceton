@@ -1,9 +1,11 @@
 from flask import Flask, redirect, url_for, request, render_template, session
+import pandas as pd
+
 from patient_data import PatientDatabase
 
 app = Flask(__name__)
 app.secret_key = "key"
-patient_data = PatientDatabase("./static/PatientsDatabase.csv")
+patient_data = PatientDatabase(pd.read_csv("./static/PatientsDatabase.csv"))
 
 
 @app.route("/")
@@ -60,11 +62,13 @@ def display():
 
     name = patient_data.get_name(identification_number)
     visits = patient_data.get_visits(identification_number)
+    print(f"TYPE!!!!!!!!!: {type(list(visits.keys())[0])}, {type(list(visits.values())[0])}")
     return render_template("visits.html", name=name, visits=visits)
 
-@app.route("/day/<date>")
-def day(date):
-    return render_template("day.html", date = date)
+@app.route("/day/<date>/<visit_patient>")
+def day(date, visit_patient):
+    print(f"@@@@@@@@@@@@@@@@@@@@@@@ {type(visit_patient)}")
+    return render_template("day.html", date = date, visit_data = visit_patient)
 
 if __name__ == "__main__":
     app.run(debug=True)
