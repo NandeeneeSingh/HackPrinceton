@@ -63,21 +63,25 @@ img {
 }
 
 .visit_data {
-    margin: 2rem;
-    margin: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
 }
 
 .visits {
-    column-gap: 2rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-}
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}   
 
 .visit {
     width: 70%;
     margin: auto;
-    padding: 2rem;
-    height: 80%;
+    
 }
 
 .contact {
@@ -96,3 +100,4 @@ img {
     padding-inline: 55rem;
     padding-top: 3rem;
 }
+
