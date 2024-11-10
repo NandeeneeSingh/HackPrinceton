@@ -36,10 +36,11 @@ class VisitDataReader:
                 parser_state = ParserState.MEDICATIONS
             elif "Known Allergies" in processed_line:
                 parser_state = ParserState.ALLERGIES
-            elif parser_state in [ParserState.CONDITIONS, ParserState.MEDICATIONS, ParserState.ALLERGIES] and line == "":
+            elif parser_state in [ParserState.CONDITIONS, ParserState.MEDICATIONS, ParserState.ALLERGIES] and processed_line == "":
                 parser_state = ParserState.OTHER
+                continue
 
-            if line != "X" and parser_state is not ParserState.OTHER:
+            if processed_line != "X" and parser_state is not ParserState.OTHER:
                 if parser_state is ParserState.CONDITIONS:
                     self.conditions.append(processed_line)
                 elif parser_state is ParserState.MEDICATIONS:

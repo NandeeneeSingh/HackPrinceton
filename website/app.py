@@ -1,11 +1,14 @@
 from flask import Flask, redirect, url_for, request, render_template, session
 import pandas as pd
 
-from patient_data import PatientDatabase
+from patient_data import PatientDatabase, VisitDataReader
+from llm_script import MedicalAssistant
 
 app = Flask(__name__)
 app.secret_key = "key"
 patient_data = PatientDatabase(pd.read_csv("./static/PatientsDatabase.csv"))
+
+medical_assistant = MedicalAssistant()
 
 
 @app.route("/")
@@ -62,13 +65,14 @@ def display():
 
     name = patient_data.get_name(identification_number)
     visits = patient_data.get_visits(identification_number)
-    print(f"TYPE!!!!!!!!!: {type(list(visits.keys())[0])}, {type(list(visits.values())[0])}")
-    return render_template("visits.html", name=name, visits=visits)
+    return render_template("visits.html", name=name, visits=visits, identification_number=identification_number)
 
-@app.route("/day/<date>/<visit_patient>")
-def day(date, visit_patient):
-    print(f"@@@@@@@@@@@@@@@@@@@@@@@ {type(visit_patient)}")
-    return render_template("day.html", date = date, visit_data = visit_patient)
+@app.route("/day/<date>/<identification_number>")
+def day(date : str, identification_number : str):
+    visit_data = patient_data.get_visits(int(identification_number))[date]
+    simplified_diagnosis = medical_assistant.query_diagnosis(str(visit_data.conditions))
+
+    return render_template("day.html", date = date, simplified_diagnosis = simplified_diagnosis)
 
 if __name__ == "__main__":
     app.run(debug=True)
